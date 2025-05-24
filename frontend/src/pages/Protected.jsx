@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import axios from "axios";
-const apiURl = import.meta.env.VITE_BACKEND_API;
+const apiUrl = import.meta.env.VITE_BACKEND_API;
 const Protected = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
 

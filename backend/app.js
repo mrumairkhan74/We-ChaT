@@ -27,7 +27,7 @@ let onlineUsers = [];
 io.on("connection", (socket) => {
     console.log('User Connected:', socket.id);
 
-    // Store username when the user joins
+    // Store username in cookie when the user joins
     socket.on("userJoined", (username) => {
         socket.username = username;
 
@@ -35,19 +35,23 @@ io.on("connection", (socket) => {
             onlineUsers.push(username);
         }
 
-        io.emit("onlineUsers", onlineUsers); // Broadcast to all
+        io.emit("onlineUsers", onlineUsers); //show all users Online
     });
 
     socket.on("sendMessage", (data) => {
         io.emit("receiveMessage", data);
     });
 
+    socket.on("messageSeen", ({ messageId, from, to }) => {
+
+        io.emit("messageSeenAck", { messageId, from, to }); //show specific user
+    });
     socket.on("disconnect", () => {
         console.log("User disconnected:", socket.username || socket.id);
 
         if (socket.username) {
             onlineUsers = onlineUsers.filter(name => name !== socket.username);
-            io.emit("onlineUsers", onlineUsers); // Update for all clients
+            io.emit("onlineUsers", onlineUsers); // Update for all users
         }
     });
 });

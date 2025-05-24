@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router";
+import { useNavigate, Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 
 import Background from "./Background";
 import LogoL from "./LogoL";
+
 const apiUrl = import.meta.env.VITE_BACKEND_API;
 
 const Login = () => {
@@ -45,24 +46,26 @@ const Login = () => {
     <>
       <Background />
       <ToastContainer />
-
-      {/* Full-screen loader overlay */}
       {loading && <LogoL />}
 
-      <div className="w-full h-screen relative">
-        <div className="w-[500px] h-[500px] rounded-md bg-transparent backdrop-blur-sm absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-md shadow-black">
-          <form className="p-5 mt-[100px] mb-0" onSubmit={handleLogin}>
-            {error}
+      <div className="w-full h-screen flex items-center justify-center p-4">
+        <div className="w-full max-w-md bg-white/30 backdrop-blur-md shadow-lg rounded-xl px-6 py-8">
+          <form onSubmit={handleLogin}>
             <img
               src="./images/login-lock.png"
-              className="w-50 mx-auto"
+              className="w-24 h-24 mx-auto mb-4"
               alt="login icon"
             />
-            <div className="flex flex-col items-center mt-[50px] gap-3">
+
+            {error && (
+              <p className="text-red-600 text-center text-sm mb-4">{error}</p>
+            )}
+
+            <div className="flex flex-col gap-4">
               <input
                 type="text"
-                placeholder="username or email"
-                className="p-2 w-full rounded-md text-blue-900 border-2 border-gray-400"
+                placeholder="Username or Email"
+                className="p-3 w-full rounded-md text-blue-900 border border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={username || email}
                 onChange={(e) => {
                   const value = e.target.value;
@@ -76,26 +79,29 @@ const Login = () => {
                 }}
                 required
               />
+
               <input
                 type="password"
-                placeholder="password"
-                className="p-2 w-full text-blue-900 rounded-md border-2 border-gray-400"
+                placeholder="Password"
+                className="p-3 w-full text-blue-900 rounded-md border border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              <div className="flex items-center gap-2 text-sm mt-2">
-                <p>I don't have an account</p>
+
+              <div className="flex items-center justify-between text-sm">
+                <p className="text-gray-700">Don’t have an account?</p>
                 <Link to="/signup" className="text-blue-600 underline">
                   Signup
                 </Link>
               </div>
+
               <button
                 type="submit"
                 disabled={loading}
-                className="p-2 w-[100px] text-blue-900 rounded-md border-2 border-blue-900 cursor-pointer flex items-center justify-center hover:bg-blue-900 hover:text-white "
+                className="p-3 bg-blue-900 text-white rounded-md hover:bg-blue-700 transition disabled:opacity-50"
               >
-                LOGIN
+                {loading ? "Logging in..." : "LOGIN"}
               </button>
             </div>
           </form>

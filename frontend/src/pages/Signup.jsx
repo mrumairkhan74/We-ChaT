@@ -36,6 +36,7 @@ const Signup = () => {
 
       if (res.data?.exists) {
         toast.error("User Already Exists");
+        setLoading(false);
         return;
       }
 
@@ -57,63 +58,62 @@ const Signup = () => {
       {/* Full-screen loader overlay */}
       {loading && <LogoS />}
 
-      <div className="w-full h-screen relative">
-        <div className="w-[500px] h-[550px] rounded-md bg-transparent backdrop-blur-sm absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-md shadow-black">
-          <form className="p-5 mt-[25px]" onSubmit={handleSubmit}>
-            {error}
+      <div className="w-full min-h-screen flex items-center justify-center relative p-4">
+        <div className="w-full max-w-md rounded-md bg-white/30 backdrop-blur-sm shadow-md shadow-black p-6">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            {error && (
+              <p className="text-red-500 text-center font-semibold">{error}</p>
+            )}
             <img
               src="./images/signup.png"
-              className="w-[250px] mx-auto"
               alt="signup icon"
+              className="w-40 mx-auto mb-4"
             />
-            <div className="flex flex-col items-center mt-[25px] gap-3">
-              <input
-                type="text"
-                className="p-2 w-full rounded-md border-2 border-gray-400"
-                placeholder="Name"
-                onChange={(e) => setName(e.target.value)}
-                value={name}
-                required
-              />
-              <input
-                type="text"
-                className="p-2 w-full rounded-md border-2 border-gray-400"
-                placeholder="Username"
-                onChange={(e) => setUsername(e.target.value)}
-                value={username}
-                required
-              />
-              <input
-                type="email"
-                className="p-2 w-full rounded-md border-2 border-gray-400"
-                placeholder="Email"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-                required
-              />
-              <input
-                type="password"
-                className="p-2 w-full rounded-md border-2 border-gray-400"
-                placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-                required
-              />
-              <div className="flex items-center gap-2 text-sm mt-2">
-                <p>I already have an account</p>
-                <Link to="/" className="text-blue-600 underline">
-                  Login
-                </Link>
-              </div>
-
-              <button
-                type="submit"
-                disabled={loading}
-                className="p-2 rounded-md border-2 border-blue-400 cursor-pointer flex items-center justify-center"
-              >
-                Signup
-              </button>
+            <input
+              type="text"
+              className="p-3 w-full rounded-md border-2 border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Name"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+              required
+            />
+            <input
+              type="text"
+              className="p-3 w-full rounded-md border-2 border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Username"
+              onChange={(e) => setUsername(e.target.value)}
+              value={username}
+              required
+            />
+            <input
+              type="email"
+              className="p-3 w-full rounded-md border-2 border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              required
+            />
+            <input
+              type="password"
+              className="p-3 w-full rounded-md border-2 border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              required
+            />
+            <div className="flex items-center gap-2 text-sm justify-center">
+              <p>I already have an account</p>
+              <Link to="/" className="text-blue-600 underline">
+                Login
+              </Link>
             </div>
+            <button
+              type="submit"
+              disabled={loading}
+              className="p-3 rounded-md border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Signup
+            </button>
           </form>
         </div>
       </div>

@@ -1,13 +1,17 @@
-import React from 'react'
+import React from 'react';
 
 const LogoS = () => {
   return (
-    <div className=' w-full h-screen bg-transparent relative'>
-         <div className="w-[500px] h-[500px] rounded-md bg-transparent backdrop-blur-sm absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-md ">
-            <img src="./images/signup.png" className='items-center justify-center p-2 w-50 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-spin' />
-         </div>
+    <div className="w-full h-screen flex items-center justify-center bg-transparent">
+      <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-[400px] md:h-[400px] bg-transparent backdrop-blur-sm shadow-md rounded-md flex items-center justify-center">
+        <img
+          src="./images/signup.png"
+          alt="Loading"
+          className="w-24 sm:w-32 md:w-40 animate-spin"
+        />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default LogoS
+export default LogoS;
