@@ -1,77 +1,73 @@
-# WeChat-WebApp
+# 💬 WeChat Web App
 
+_Real-Time Chat Platform for Instant and Secure Communication_
 
-<!-- Login Images -->
-<h6>Login</h6>
-<img src="/login_chatApp.png" width="50%" height="50%">
-<br>
-<h6>Signup</h6>
-<img src="/signUp.png" width="50%" height="50%">
-<br>
+![Last Commit](https://img.shields.io/github/last-commit/mrumairkhan74/wechat-webapp)
+![Node](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen)
+![License](https://img.shields.io/github/license/mrumairkhan74/wechat-webapp)
 
-<h6>Home</h6>
-<img src="/home_Chat-App.png" width="50%" height="50%">
-<img src="/home-1.png" width="50%" height="50%"># 📱 WeChat Web App
+**Built with the tools and technologies:**
 
-A real-time chat web application where users can sign up, log in, and send messages instantly.
+![Node.js](https://img.shields.io/badge/Node.js-green?logo=node.js&style=for-the-badge)
+![Express](https://img.shields.io/badge/Express-black?logo=express&style=for-the-badge)
+![MongoDB](https://img.shields.io/badge/MongoDB-darkgreen?logo=mongodb&style=for-the-badge)
+![Socket.IO](https://img.shields.io/badge/Socket.IO-white?logo=socket.io&style=for-the-badge)
+![JWT](https://img.shields.io/badge/JWT-yellow?logo=jwt&style=for-the-badge)
+![JavaScript](https://img.shields.io/badge/JavaScript-yellow?logo=javascript&style=for-the-badge)
+![React](https://img.shields.io/badge/React-blue?logo=react&style=for-the-badge)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-06B6D4?logo=tailwindcss&style=for-the-badge)
+![Axios](https://img.shields.io/badge/Axios-blue?logo=axios&style=for-the-badge)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?logo=reactrouter&style=for-the-badge)
+
+---
+
+## 📑 Table of Contents
+
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Screenshots](#screenshots)
+- [Project Structure](#project-structure)
+- [Future Enhancements](#future-enhancements)
+- [License](#license)
 
 ---
 
 ## 📌 Overview
 
-**WeChat Web App** is a full-stack chat platform built with modern web technologies, providing real-time communication features with a clean and responsive UI.
+WeChat Web App is a secure and modern real-time chat platform built using the MERN stack with Socket.IO integration.
+
+### ✨ Key Features
+
+- 🔐 **User Authentication** with JWT
+- 💬 **Real-time Messaging** using Socket.IO
+- 🧑‍🤝‍🧑 One-on-One and Room-based Chat
+- 🕒 **Timestamps and User Presence**
+- 🎨 **Responsive UI** built with React + Tailwind CSS
+- ⚙️ **RESTful APIs** with Express and MongoDB
 
 ---
 
-## ⚙️ Tech Stack
+## 🚀 Getting Started
 
-- **Frontend:** HTML, CSS, JavaScript (or React)
-- **Backend:** Node.js, Express
-- **Database:** MongoDB with Mongoose
-- **Real-time Communication:** Socket.IO
-- **Authentication:** JWT & bcrypt
-- **Storage:** MongoDB (Cloud or Local)
+### 🧰 Prerequisites
 
----
-
-## 🌟 Features
-
-- 🔐 User Signup & Login
-- 💬 Real-Time Messaging
-- 🧑‍🤝‍🧑 Chat Interface
-- 🕒 Message Timestamps
-- 📱 Responsive Design
-- 🟢 User Presence Status
-
----
-
-## 🖼 UI Screenshots
-
-### 🔐 Login
-![Login](./login_chatApp.png)
-
-### 📝 Signup
-![Signup](./signUp.png)
-
-### 🏠 Home (Chat Interface)
-![Home](./home_Chat-App.png)
-![Home Alt](./home-1.png)
-
----
-
-## 🚀 Installation
-
-### Prerequisites
+Make sure you have the following installed:
 
 - Node.js (v14 or higher)
-- MongoDB (local or cloud)
-- Git
+- npm
+- MongoDB (local or Atlas)
 
-### Steps
+---
 
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/wechat-webapp.git
+### ⚙️ Installation
+
+1. **Clone the repository**
+
+````bash
+git clone https://github.com/mrumairkhan74/wechat-webapp
 cd wechat-webapp
 
 # Install dependencies
@@ -81,5 +77,6 @@ npm install
 cp .env.example .env
 # Edit .env and add MONGO_URI, JWT_SECRET, etc.
 
-# Run the app
-npm start
+```bash
+
+
