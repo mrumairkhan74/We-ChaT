@@ -35,23 +35,21 @@ const Home = () => {
       const newMsg = {
         text: msg,
         sender: user?.username || "Anonymous",
-        _id: `${Date.now()}-${Math.random()}`, // Temporary ID
+        _id: `${Date.now()}-${Math.random()}`, // Unique ID
       };
       socket.emit("sendMessage", newMsg);
-      setMessages((prev) => [...prev, newMsg]);
-      setMsg("");
+      setMsg(""); // Clear input after sending
     }
   };
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
-
   useEffect(() => {
     const handleReceive = (data) => {
       setMessages((prev) => [...prev, data]);
 
-      // Emit seen if not from self
+      // Send seen event if message is from others
       if (data.sender !== user?.username) {
         socket.emit("messageSeen", {
           messageId: data._id,
@@ -67,7 +65,12 @@ const Home = () => {
 
   useEffect(() => {
     socket.on("messageSeenAck", ({ messageId }) => {
-      setSeenMessages((prev) => [...prev, messageId]);
+      setSeenMessages((prev) => {
+        if (!prev.includes(messageId)) {
+          return [...prev, messageId];
+        }
+        return prev;
+      });
     });
 
     socket.on("onlineUsers", (users) => {
@@ -159,7 +162,9 @@ const Home = () => {
                 <div
                   key={i}
                   className={`my-1 flex ${
-                    m.sender === user?.username ? "justify-end" : "justify-start"
+                    m.sender === user?.username
+                      ? "justify-end"
+                      : "justify-start"
                   }`}
                 >
                   <div>
@@ -184,6 +189,7 @@ const Home = () => {
                   </div>
                 </div>
               ))}
+
               <div ref={messagesEndRef} />
             </div>
 
