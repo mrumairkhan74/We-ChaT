@@ -52,9 +52,7 @@ io.on("connection", (socket) => {
     });
 });
 
-app.get('/',(req,res)=>{
-    res.send("Backend Running")
-})
+
 
 server.listen(process.env.PORT, () => {
     console.log("Server running on port 5000");
