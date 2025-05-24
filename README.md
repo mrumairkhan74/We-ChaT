@@ -2,7 +2,7 @@
 
 _Real-Time Chat Platform for Instant and Secure Communication_
 
-![Last Commit](https://img.shields.io/github/last-commit/mrumairkhan74/wechat-webapp)
+![Last Commit](https://img.shields.io/github/last-commit/mrumairkhan74/We-Chat)
 ![Node](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen)
 ![License](https://img.shields.io/github/license/mrumairkhan74/wechat-webapp)
 
@@ -47,6 +47,18 @@ WeChat Web App is a secure and modern real-time chat platform built using the ME
 - 🕒 **Timestamps and User Presence**
 - 🎨 **Responsive UI** built with React + Tailwind CSS
 - ⚙️ **RESTful APIs** with Express and MongoDB
+
+---
+**🖼Screenshots**
+
+🔐 Login
+<img src="/login_chatApp.png" width="70%"/>
+
+📝 Signup
+<img src="/signUp.png" width="70%"/>
+
+🏠 Home
+<img src="/home_Chat-App.png" width="49%"/> <img src="/home-1.png" width="49%"/>
 
 ---
 
